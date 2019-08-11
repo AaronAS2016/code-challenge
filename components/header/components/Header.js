@@ -1,15 +1,16 @@
-import { Navbar } from "../containers/Navbar";
+import { NavbarContainer } from "../containers/Navbar";
 import Banner from "./Banner";
 
 const headerStyles = {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    flexDirection: 'column'
 }
 
 const Header = props => (
     <header style={headerStyles}>
-        <Navbar></Navbar>
-        <Banner></Banner>
+        <NavbarContainer></NavbarContainer>
+        <Banner src="static/header-x1.png"></Banner>
     </header>
 )
 

@@ -14,11 +14,8 @@ const profileNameStyles = {
 
 const Profile = props => (
    <div style={profileStyles}>
-       <p style={profileNameStyles}> Jonh Kite </p>
-
-        <Coins coins="5000"></Coins>
-
-
+        <p style={profileNameStyles}> {props.name} </p>
+        <Coins coins={props.coins}></Coins>
    </div>
 )
 

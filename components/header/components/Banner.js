@@ -1,5 +1,9 @@
+const bannerStyles  = {
+   width:"100%"
+}
+
 const Banner = props => (
-   <div></div>
+   <img src={props.src} alt={props.alt} style={bannerStyles} />
 )
 
 export default Banner;
