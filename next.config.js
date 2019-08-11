@@ -1,5 +1,5 @@
-const withCSS = require('@zeit/next-css')
-module.exports = withCSS({
+
+module.exports ={
   /* config options here */
   server: "serverless"
-})
+}

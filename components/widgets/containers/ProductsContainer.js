@@ -1,13 +1,14 @@
 import ActionBar from "./ActionBar";
 import Product from "../components/Product";
 import ProductsLayout from "../components/ProductsLayout";
+import Pagination from "./Pagination";
 
 export class ProductsCointaner extends React.Component{
     render(){
         return (
             <section>
 
-                <ActionBar></ActionBar>
+                <ActionBar/>
 
                 <ProductsLayout>
                     <Product></Product>
@@ -23,6 +24,8 @@ export class ProductsCointaner extends React.Component{
                     <Product></Product>
                     <Product></Product>
                 </ProductsLayout>
+
+                <Pagination/>
 
 
             </section>
