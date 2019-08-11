@@ -11,6 +11,7 @@ const Navbar = props => (
             nav{
                 width:100%;
                 height:50px;
+                box-sizing: border-box;
                 background: #fff;
                 display:flex;
                 align-items:center;
