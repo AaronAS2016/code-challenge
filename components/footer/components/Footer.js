@@ -4,9 +4,9 @@ const Footer = props => (
            {
                `
                     .footer{
-                        width:90%;
-                        margin:5%;
-                        border-bottom: 2px solid #f9f9f9;
+                        width:80%;
+                        margin:10%;
+                        border-bottom: 1px solid #d9d9d9;
                     }
                
                

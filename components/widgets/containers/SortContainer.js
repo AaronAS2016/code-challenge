@@ -32,7 +32,7 @@ export default class SortCointainer extends React.Component{
             <div className="sort-container">
 
                 <button className="btn btn-primary sort-button" onClick={this.toggleSort}>
-                    Sort By
+                    Sort by 
                 </button>
 
                 <span className="sort-span">
@@ -85,6 +85,26 @@ export default class SortCointainer extends React.Component{
                         transition: all .3s;
                         opacity:0;
                         z-index:2;
+                    }
+
+                    .sort-types .btn{
+                        margin:2px 0;
+                    }
+
+                    .sort-button{
+                        position:relative;
+                    }
+
+                    .sort-button:after{
+                        content: " ";
+                        position: absolute;
+                        right: 25px;
+                        top: 20%;
+                        width: 14px;
+                        height: 24px;
+                        background-image: url(static/icons/sort-down.svg);
+                        background-size: 100%;
+                        background-position: center;
                     }
 
                     .activeSort{
