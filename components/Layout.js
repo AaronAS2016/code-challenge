@@ -1,6 +1,7 @@
 import { Link } from '../routes/'
 import Head from 'next/head'
 import Header from './header/components/Header';
+import Footer from './footer/components/Footer';
 
 export class Layout extends React.Component{
     render(){
@@ -22,10 +23,11 @@ export class Layout extends React.Component{
             { children }
 
 
-            <footer> Footer  </footer>
+            <Footer></Footer>
 
             <style jsx global>{
                 `
+
                     body{
                         margin:0;
                         padding:0;
