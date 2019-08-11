@@ -10,7 +10,7 @@ const headerStyles = {
 const Header = props => (
     <header style={headerStyles}>
         <NavbarContainer></NavbarContainer>
-        <Banner src="static/header-x1.png"></Banner>
+        <Banner src="static/header-x1.png" title="Electronics"></Banner>
     </header>
 )
 
