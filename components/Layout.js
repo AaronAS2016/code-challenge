@@ -32,7 +32,34 @@ export class Layout extends React.Component{
                         margin:0;
                         padding:0;
                         font-family: Roboto;
+                        background: #f9f9f9;
                     }
+
+                    button{
+
+                        border: none;
+                        margin: 0;
+                        padding: 0;
+                        width: auto;
+                        overflow: visible;
+                        background: transparent;
+                        color: inherit;
+                        font: inherit;
+                        line-height: normal;
+                        outline: 0;
+
+                        -webkit-font-smoothing: inherit;
+                        -moz-osx-font-smoothing: inherit;
+                        -webkit-appearance: none;
+
+                    }
+
+                    button::-moz-focus-inner  {
+                        border: 0;
+                        padding: 0;
+                    }
+
+                    button:focus {outline:0;}
                 `
             }
             </style>

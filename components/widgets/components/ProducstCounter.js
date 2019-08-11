@@ -1,3 +1,5 @@
+import {device} from '../../../helpers/breakpoints'
+
 const ProductsCounter = props => (
     <div className="counter-container">
         <span className="counter">{props.of} of {props.total} products</span>
@@ -14,9 +16,15 @@ const ProductsCounter = props => (
 
                 .counter{
                     padding: 20px;
-                    font-size:1em;
-                    border-right: 2px solid #f9f9f9;
+                    color: #616161;
+                    border-right: 2px solid #d9d9d9;
                     font-weight:500;
+                }
+
+                @media ${device.tablet}{
+                    .counter{
+                        font-size:1.3em;
+                    }
                 }
             
             `
