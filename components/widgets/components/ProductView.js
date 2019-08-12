@@ -13,7 +13,7 @@ const coinsStyles = {
     fontSize:".9em"
 }
 
-const ProductLayout = props => (
+const ProductView = props => (
     <div className="product-container">
 
 
@@ -174,4 +174,4 @@ const ProductLayout = props => (
     </div>
 )
 
-export default ProductLayout;
+export default ProductView;

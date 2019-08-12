@@ -1,5 +1,5 @@
 
-import ProductLayout from '../components/ProductLayout'
+import ProductView from '../components/ProductView'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -17,7 +17,15 @@ class Product extends React.Component{
         }
 
         return (
-            <ProductLayout key={id} title={title} category={category} img={img} canBuy={canBuy} cost={cost} coinsTobuy={coinsTobuy} />
+            <ProductView 
+                key={id} 
+                title={title} 
+                category={category} 
+                img={img} 
+                canBuy={canBuy} 
+                cost={cost} 
+                coinsTobuy={coinsTobuy} 
+            />
         )
 
 

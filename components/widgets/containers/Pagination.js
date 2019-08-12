@@ -6,15 +6,8 @@ import { connect } from 'react-redux'
 import { backPage,  nextPage } from '../../../store'
 
  class Pagination extends React.Component{
-    
-    
-    
-
-    
+        
     render(){
-
-
-
 
         const { lengthProducts, actualPage, productsPerPage, nextPage, backPage} = this.props
         
