@@ -86,7 +86,7 @@ class SortCointainer extends React.Component{
                         flex-direction: column;
                         transition: all .3s;
                         opacity:0;
-                        z-index:10;
+                        z-index:100;
                     }
 
                     .sort-types .btn{

@@ -9,13 +9,14 @@ const Modal = (props) => (
                         
                         
                             .modal{
+                                display:none;
                                 position:fixed;
                                 width:100%;
                                 height:100%;
                                 top:0;
                                 left:0;
                                 background: rgba(9,0,0,.8);
-                                display:flex;
+                                
                                 justify-content:center;
                                 align-items:center;
                                 z-index:100;

@@ -1,5 +1,5 @@
 const PrevPage = props => (
-    <div className={"btn-pre " + (props.disabled ? "hidden" : " ") } onClick={props.onClick}>
+    <button className={"btn-pre" + (props.disabled ? " disabled "  : " ")} disabled={props.disabled} onClick={props.onClick}>
         <style jsx>
             {
                 `
@@ -16,12 +16,16 @@ const PrevPage = props => (
                     .hidden{
                         display: none;
                     }
+
+                    .disabled{
+                        cursor : not-allowed ;
+                    }
                 
                 `
             }
 
         </style>
-    </div>
+    </button>
 )
 
 export default PrevPage

@@ -1,6 +1,6 @@
 
 const NextPage = props => (
-    <div className={"btn-next " + (props.disabled ? "hidden" : " " ) } onClick={props.onClick}>
+    <button className={"btn-next " + (props.disabled ? " disabled" : "")  }  disabled={props.disabled}  onClick={props.onClick}>
 
         <style jsx>
             {
@@ -18,12 +18,16 @@ const NextPage = props => (
                     .hidden{
                         display: none;
                     }
+
+                     .disabled{
+                        cursor : not-allowed ;
+                    }
                 
                 `
             }
 
         </style>
-    </div>
+    </button>
 )
 
 export default NextPage

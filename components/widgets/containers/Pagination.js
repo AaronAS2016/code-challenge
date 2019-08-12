@@ -11,16 +11,27 @@ import { backPage,  nextPage } from '../../../store'
 
         const { lengthProducts, actualPage, productsPerPage, nextPage, backPage} = this.props
         
-        const isPosiblePrev = (actualPage == 1);
-        const isPosibleNext = (actualPage * productsPerPage >= lengthProducts );
+        const isNotPosiblePrev = (actualPage == 1);
+        const isNotPosibleNext = (actualPage * productsPerPage >= lengthProducts );
+
+        let goNextPage = nextPage;
+        let goBackPage = backPage;
+
+        if(isNotPosiblePrev){
+            goBackPage = null;
+        }
+
+        if(isNotPosibleNext){
+            goNextPage= null;
+        }
 
 
 
         return (
             <div className="pagination-container">
                 
-                <PrevPage onClick={backPage} disabled={isPosiblePrev}/>
-                <NextPage onClick={nextPage} disabled={isPosibleNext}/>
+                <PrevPage onClick={goBackPage} disabled={isNotPosiblePrev}/>
+                <NextPage onClick={goNextPage} disabled={isNotPosibleNext}/>
             
 
                 <style jsx>
