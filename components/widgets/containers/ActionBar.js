@@ -2,12 +2,16 @@ import ProductsCounter from "../components/ProducstCounter";
 import SortCointainer  from "./SortContainer";
 import { device } from '../../../helpers/breakpoints';
 
+import { connect } from 'react-redux'
 
-export default class ActionBar extends React.Component{
+class ActionBar extends React.Component{
     render(){
+
+        const { actualPage, productsPerPage, lengthProducts } = this.props;
+
         return (
             <div className="action-bar">
-                <ProductsCounter of="16" total="32"></ProductsCounter>
+                <ProductsCounter of={actualPage * productsPerPage} total={lengthProducts}></ProductsCounter>
                 <SortCointainer></SortCointainer>
 
                 <style jsx >
@@ -52,3 +56,17 @@ export default class ActionBar extends React.Component{
         )
     }
 }
+
+function mapStateToProps (state) {
+
+    const { actualPage,  productsPerPage, products } = state
+    return { 
+        actualPage,
+        lengthProducts: products.length,
+        productsPerPage
+     }
+  }
+
+  export default connect(
+    mapStateToProps
+  )(ActionBar)
