@@ -21,6 +21,7 @@ class SortCointainer extends React.Component{
     changeSortType = (name) => {
         const { changeSortBy } = this.props;
         changeSortBy({sortBy: name})
+        this.toggleSort()
     } 
 
 
@@ -85,7 +86,7 @@ class SortCointainer extends React.Component{
                         flex-direction: column;
                         transition: all .3s;
                         opacity:0;
-                        z-index:2;
+                        z-index:10;
                     }
 
                     .sort-types .btn{
