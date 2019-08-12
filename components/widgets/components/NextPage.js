@@ -1,5 +1,6 @@
+
 const NextPage = props => (
-    <div className="btn-next" onClick={props.onClick}>
+    <div className={"btn-next " + (props.disabled ? "hidden" : " " ) } onClick={props.onClick}>
 
         <style jsx>
             {
@@ -12,6 +13,10 @@ const NextPage = props => (
                         background-size:100%;
                         background-position: center;
                         cursor:pointer;
+                    }
+
+                    .hidden{
+                        display: none;
                     }
                 
                 `

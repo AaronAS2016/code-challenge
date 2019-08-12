@@ -3,7 +3,7 @@ import { ProductsCointaner } from "../components/widgets/containers/ProductsCont
 import fetch from 'isomorphic-fetch';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { loadUser } from '../store'
+import { loadUser, loadProducts } from '../store'
 
 class Index extends React.Component { 
 
@@ -19,40 +19,56 @@ class Index extends React.Component {
                             headers,
                             mode: 'cors',
                             cache: 'default' };
-            let req = await fetch('https://coding-challenge-api.aerolab.co/user/me', miInit)
-            let body = await req.json()
+            let [reqProfile, reqProducts ] = await Promise.all([
+                fetch('https://coding-challenge-api.aerolab.co/user/me', miInit),
+                fetch('https://coding-challenge-api.aerolab.co/products', miInit)
+            ])
+            let body = await reqProfile.json()
+            let products = await reqProducts.json()
 
-            return  { profile: body, status: 200 }
+            return  { profile: body, products,  statusCode: 200 }
 
         }catch(e){
-            return { profile: null, status: 500 }
+            return { profile: null, products, statusCode: 503 }
         }
     }
 
     componentDidMount (){
-        const { loadUser, profile } = this.props
+        const { loadUser, loadProducts , profile, products } = this.props
         loadUser(profile)
+        loadProducts(products)
     }
     
     render() {
-    console.log(this.props)
+
+
+    
+    const { products, productsPerPage, actualPage } = this.props
 
     return <Layout title="Aerolab">
-          <ProductsCointaner>
-            
-          </ProductsCointaner>
+          <ProductsCointaner 
+            products={products} 
+            productsPerPage={productsPerPage} 
+            actualPage={actualPage}/>
       </Layout>
   }
  }
 
  function mapStateToProps (state) {
-    return { state }
+
+    const { actualPage, productsPerPage } = state
+
+    return { 
+        actualPage,
+        productsPerPage
+     }
   }
   
 
  const mapDispatchToProps = dispatch => {
     return {
-        loadUser: bindActionCreators(loadUser, dispatch)
+        loadUser: bindActionCreators(loadUser, dispatch),
+        loadProducts: bindActionCreators(loadProducts, dispatch)
     }
   }
   

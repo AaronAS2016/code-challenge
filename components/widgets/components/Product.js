@@ -5,12 +5,12 @@ const Product = props => (
 
 
         <div className="product-image">
-            <img src="https://aerolab-challenge.now.sh/images/iPhone8-x1.png"></img>
+            <img src={props.img}></img>
         </div>
 
         <div className="product-detail">
-            <span className="product-category">Laptops </span>
-            <span className="product-title">Macbook Pro</span>
+            <span className="product-category">{props.category} </span>
+            <span className="product-title">{props.title}</span>
         </div>
 
 

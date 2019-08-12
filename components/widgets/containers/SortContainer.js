@@ -1,7 +1,5 @@
 import { device } from '../../../helpers/breakpoints'
 
-
-
 export default class SortCointainer extends React.Component{
 
     state = {
