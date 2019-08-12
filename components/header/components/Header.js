@@ -1,5 +1,6 @@
-import { NavbarContainer } from "../containers/Navbar";
+
 import Banner from "./Banner";
+import NavbarContainer from '../containers/Navbar'
 
 const headerStyles = {
     display: 'flex',
