@@ -1,8 +1,7 @@
 
-const coinsStyles ={};
 
 const Coins = props => (
-    <div className="coins-container" style={coinsStyles}>
+    <div className="coins-container" style={props.style}>
         <span className="coins-counter">{props.coins}</span>
         <div className="coin"></div>
         <style jsx>

@@ -51,6 +51,7 @@ export class Layout extends React.Component{
                         -webkit-font-smoothing: inherit;
                         -moz-osx-font-smoothing: inherit;
                         -webkit-appearance: none;
+                        -webkit-tap-highlight-color: rgba(0,0,0,0);
 
                     }
 

@@ -1,5 +1,5 @@
 import ActionBar from "./ActionBar";
-import Product from "../components/Product";
+import Product from "../containers/Product";
 import ProductsLayout from "../components/ProductsLayout";
 import Pagination from "./Pagination";
 import { sortByRecent, sortByLowestPrice, sortByHighestPrice } from '../../../helpers/sortProducts'
@@ -31,7 +31,14 @@ export class ProductsCointaner extends React.Component{
                 <ProductsLayout>
                     {
                         sortFunctions[sortMethod](products).slice(start , productsPerPage*actualPage).map(product => (
-                            <Product key={product._id} title={product.name} category={product.categoy} img={product.img.url} ></Product>
+                            <Product
+                                    key={product._id} 
+                                    id={product._id}
+                                    cost={product.cost} 
+                                    title={product.name} 
+                                    category={product.categoy} 
+                                    img={product.img.url}      
+                            />
                         ))
 
                     }

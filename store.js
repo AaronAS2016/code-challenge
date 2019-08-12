@@ -33,7 +33,7 @@ export const reducer = (state = defaultState, action) => {
     case actionTypes.BACK_PAGE:
         return Object.assign({}, state, state.actualPage--)
     case actionTypes.CHANGE_SORT_METHOD:
-        return Object.assign({}, state, action.payload)
+        return Object.assign({}, state, action.payload, state.actualPage = 1)
     default:
       return state
   }
