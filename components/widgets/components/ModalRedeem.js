@@ -1,20 +1,16 @@
-import Coins from "../../header/components/Coins";
+import Loader from "./Loader";
 
 const ModalRedeem = (props) => (
     <div className="modal-container">
 
 
-        <div>
-            You will buy {props.title}
+        <div className="modal-title">
+            We are redeem your {props.title}
         </div>
 
-        <Coins coins={props.cost}>
+        <Loader>
 
-        </Coins>
-
-        <div className="modal-image">
-            <img src={props.img} alt={props.title} />
-        </div>
+        </Loader>
         
 
    <style jsx>
@@ -23,8 +19,8 @@ const ModalRedeem = (props) => (
         
         
         .modal-container{
-            width:90%;
-            height:80vh;
+            width:80%;
+            height:50vh;
             display:flex;
             padding:10px;
             background: #fff;
@@ -39,9 +35,17 @@ const ModalRedeem = (props) => (
             width:100%;
         }
 
+        .modal-title{
+            font-size: 1.3em;
+            margin: 20px;
+            padding: 20px 0;
+            text-align:center;
+        }
+
         .modal-image img {
             max-width:100%;
         }
+
         
     `
     }
