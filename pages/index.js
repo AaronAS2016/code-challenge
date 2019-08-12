@@ -43,24 +43,26 @@ class Index extends React.Component {
 
 
     
-    const { products, productsPerPage, actualPage } = this.props
+    const { products, productsPerPage, actualPage, sortBy } = this.props
 
     return <Layout title="Aerolab">
           <ProductsCointaner 
             products={products} 
             productsPerPage={productsPerPage} 
-            actualPage={actualPage}/>
+            actualPage={actualPage}
+            sortMethod={sortBy}/>
       </Layout>
   }
  }
 
  function mapStateToProps (state) {
 
-    const { actualPage, productsPerPage } = state
+    const { actualPage, productsPerPage, sortBy } = state
 
     return { 
         actualPage,
-        productsPerPage
+        productsPerPage,
+        sortBy
      }
   }
   

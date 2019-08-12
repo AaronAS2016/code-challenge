@@ -1,9 +1,12 @@
 import { device } from '../../../helpers/breakpoints'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { changeSortBy } from '../../../store'
 
-export default class SortCointainer extends React.Component{
+
+class SortCointainer extends React.Component{
 
     state = {
-        sortType: 'recent',
         visibility: false
     }
 
@@ -16,15 +19,15 @@ export default class SortCointainer extends React.Component{
     }
 
     changeSortType = (name) => {
-        this.setState({
-            sortType: name
-        })
+        const { changeSortBy } = this.props;
+        changeSortBy({sortBy: name})
     } 
 
 
     render(){
 
-        const { visibility, sortType  } = this.state
+        const { visibility } = this.state
+        const { sortBy }  = this.props
 
         return (
             <div className="sort-container">
@@ -38,9 +41,9 @@ export default class SortCointainer extends React.Component{
                 </span>
 
                 <div className={"sort-types " + (visibility ? 'activeSort' : '')}>
-                    <button className={"btn " + (sortType == 'recent' ? 'active' : '')} onClick={()=> this.changeSortType('recent')}>Most Recent</button>
-                    <button className={"btn " + (sortType == 'lowest' ? 'active' : '')} onClick={()=> this.changeSortType('lowest')}>Lowest price</button>
-                    <button className={"btn " + (sortType == 'highest' ? 'active' : '')} onClick={()=> this.changeSortType('highest')}>Highest price</button>
+                    <button className={"btn " + (sortBy == 'recent' ? 'active' : '')} onClick={()=> this.changeSortType('recent')}>Most Recent</button>
+                    <button className={"btn " + (sortBy == 'lowest' ? 'active' : '')} onClick={()=> this.changeSortType('lowest')}>Lowest price</button>
+                    <button className={"btn " + (sortBy == 'highest' ? 'active' : '')} onClick={()=> this.changeSortType('highest')}>Highest price</button>
                 </div>
 
 
@@ -161,3 +164,26 @@ export default class SortCointainer extends React.Component{
         )
     }
 }
+
+function mapStateToProps (state) {
+
+    const { sortBy } = state
+
+    return { 
+        sortBy
+     }
+  }
+  
+
+ const mapDispatchToProps = dispatch => {
+    return {
+        changeSortBy: bindActionCreators(changeSortBy, dispatch),
+    }
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SortCointainer)
+
+

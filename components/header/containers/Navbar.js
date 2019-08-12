@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
  class NavbarContainer extends React.Component{
     render(){
-        console.log(this.props)
         const { profile } = this.props
 
         return (

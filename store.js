@@ -8,7 +8,8 @@ const defaultState = {
     },
     actualPage: 1,
     productsPerPage: 16,
-    products: []
+    products: [],
+    sortBy: 'recent'
 }
 
 export const actionTypes = {
@@ -16,6 +17,7 @@ export const actionTypes = {
   LOAD_PRODUCTS: 'LOAD_PRODUCTS',
   NEXT_PAGE: 'NEXT_PAGE',
   BACK_PAGE: 'BACK_PAGE',
+  CHANGE_SORT_METHOD: 'CHANGE_SORT_METHOD'
 }
 
 // REDUCERS
@@ -30,6 +32,8 @@ export const reducer = (state = defaultState, action) => {
         return Object.assign({}, state, state.actualPage++)
     case actionTypes.BACK_PAGE:
         return Object.assign({}, state, state.actualPage--)
+    case actionTypes.CHANGE_SORT_METHOD:
+        return Object.assign({}, state, action.payload)
     default:
       return state
   }
@@ -52,6 +56,10 @@ export const nextPage =  () => {
 
 export const backPage =  () => {
   return { type: actionTypes.BACK_PAGE }
+}
+
+export const changeSortBy = (sortBy) => {
+  return {type: actionTypes.CHANGE_SORT_METHOD, payload: sortBy}
 }
 
 
