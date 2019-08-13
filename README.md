@@ -7,6 +7,7 @@ The challenge is to build a catalog view for a loyalty program app. My solution 
 <img src="./.readme-static/screen1.png" alt="Screenshot" width="500"/>
 <img src="./.readme-static/screen3.png" alt="Screenshot" width="500"/>
 <img src="./.readme-static/screen2.png" alt="Screenshot" width="500"/> 
+
 ## How it works
 
 Requires Node.Js 10
@@ -15,6 +16,6 @@ Requires Node.Js 10
 * `npm run dev` to run enviromment local.
 * `npm run build && npm start` to run enviromment prodution.
 
-## Licencia
+## License
 
 MIT
