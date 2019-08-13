@@ -6,12 +6,25 @@ import ModalReedem from '../components/ModalRedeem';
 import Pagination from "./Pagination";
 import { sortByRecent, sortByLowestPrice, sortByHighestPrice } from '../../../helpers/sortProducts'
 
-export class ProductsCointaner extends React.Component{
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { showModal, hideModal, resetProduct } from '../../../store'
+
+class ProductsCointaner extends React.Component{
+
+
+
+    handleClickModalSuccess = () => {
+        const { hideModal } = this.props
+        hideModal()
+        resetProduct()
+    }
+
 
     render(){
 
         
-        const { products, actualPage, productsPerPage, sortMethod, selectedProduct} = this.props;
+        const { products, actualPage, productsPerPage, sortMethod, selectedProduct, modalState, success} = this.props;
 
         const sortFunctions = {
             recent: sortByRecent,
@@ -46,13 +59,15 @@ export class ProductsCointaner extends React.Component{
                     }
                 </ProductsLayout>
 
-                <Modal>
+                <Modal hidden={!modalState}>
                     <ModalReedem
                           id={selectedProduct._id}
                           cost={selectedProduct.cost} 
                           title={selectedProduct.name} 
                           category={selectedProduct.categoy} 
-                          img={selectedProduct.img.hdUrl} 
+                          img={selectedProduct.img.hdUrl}
+                          success={success}
+                          onClick={this.handleClickModalSuccess}
                     >
 
                     </ModalReedem>
@@ -65,3 +80,29 @@ export class ProductsCointaner extends React.Component{
         )
     }
 }
+
+
+function mapStateToProps (state) {
+
+
+
+    const { modalState, success  } = state
+
+    return { 
+        modalState,
+        success
+    }
+}
+  
+
+ const mapDispatchToProps = dispatch => {
+    return {
+        hideModal: bindActionCreators(hideModal, dispatch)
+    }
+}
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ProductsCointaner)
+

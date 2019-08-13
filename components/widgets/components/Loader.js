@@ -1,5 +1,5 @@
 const Loader = props => (
-    <div className="LoaderBalls">
+    <div className={"LoaderBalls " + (props.visibility ? "" : "hidden")}>
         <div className="LoaderBalls__item"></div>
         <div className="LoaderBalls__item"></div>
         <div className="LoaderBalls__item"></div>
@@ -8,12 +8,20 @@ const Loader = props => (
         <style jsx>
             {
                 `
+
+
                 .LoaderBalls {
                     width: 90px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                 }
+
+
+                .hidden{
+                    display:none;
+                }
+
                 .LoaderBalls__item {
                     width: 20px;
                     height: 20px;

@@ -1,5 +1,5 @@
 import { Layout } from "../components/Layout";
-import { ProductsCointaner } from "../components/widgets/containers/ProductsContainer";
+import  ProductsCointaner  from "../components/widgets/containers/ProductsContainer";
 import fetch from 'isomorphic-fetch';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -46,7 +46,7 @@ class Index extends React.Component {
     const { products, productsPerPage, actualPage, sortBy, selectedProduct } = this.props
 
     return <Layout title="Aerolab">
-          <ProductsCointaner 
+          <ProductsCointaner
             products={products} 
             productsPerPage={productsPerPage} 
             actualPage={actualPage}

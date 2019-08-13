@@ -34,7 +34,7 @@ const ProductView = props => (
                 <Coins coins={props.cost} style={customCoinsStyles} />
             </span>
 
-            <button className="btn-buy">
+            <button className="btn-buy" onClick={props.onClick}>
                 Redeem now
             </button>
 
