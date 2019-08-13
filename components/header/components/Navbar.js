@@ -1,11 +1,15 @@
 import Logo from './Logo';
 import Profile from './Profile';
+import Modal from '../../widgets/components/Modal';
 
 const Navbar = props => (
     <nav>
         
         <Logo src={props.logoSrc} alt={props.logoAlt} />
         <Profile  coins={props.coins} name={props.name}/>
+        <Modal hidden={true} >
+
+        </Modal>
         <style jsx>{
         `
             nav{

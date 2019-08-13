@@ -14,6 +14,11 @@ export class Layout extends React.Component{
             <Head> 
                 <title> { title } </title> 
                 <meta name="viewport" content="width=device-width"/>
+                <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"></link>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="title" content="Aerolab Challenge!"/>
+                <meta name="description" content="The challenge is to build a catalog view for a loyalty program app"/>
+                <link rel="icon" type="image/svg+xml" href="static/aerolab-logo.svg"></link>
             </Head>
 
         
