@@ -1,5 +1,5 @@
 const PrevPage = props => (
-    <button className={"btn-pre" + (props.disabled ? " disabled "  : " ")} disabled={props.disabled} onClick={props.onClick}>
+    <button className={"btn-pre" + (props.disabled ? " disabled "  : " ")} aria-label="Back" disabled={props.disabled} onClick={props.onClick}>
         <style jsx>
             {
                 `

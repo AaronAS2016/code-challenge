@@ -1,6 +1,6 @@
 
 const NextPage = props => (
-    <button className={"btn-next " + (props.disabled ? " disabled" : "")  }  disabled={props.disabled}  onClick={props.onClick}>
+    <button className={"btn-next " + (props.disabled ? " disabled" : "")  } aria-label="Next"  disabled={props.disabled}  onClick={props.onClick}>
 
         <style jsx>
             {

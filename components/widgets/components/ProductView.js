@@ -18,7 +18,7 @@ const ProductView = props => (
 
 
         <div className="product-image">
-            <img src={props.img}></img>
+            <img src={props.img} alt={props.title}></img>
         </div>
 
         <div className={"product-buy " +  (props.canBuy ? "" : "disabled") }></div>
