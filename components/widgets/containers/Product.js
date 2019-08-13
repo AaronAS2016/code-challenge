@@ -16,48 +16,38 @@ class Product extends React.Component{
             category,
             img
         }
+
         selectedProduct(product)
         showModal()
 
-
-        this.redeemProduct(id)
-     
-            .then(data => {
-                console.log(data)
+        let request = this.redeemProduct(id)
+        request.onreadystatechange = function () {
+            if (this.readyState === 4) {
                 requestCompleted()
-                profile.points =- cost
-                loadUser(profile)
-        })
-    
+                let profileUpdated = Object.assign({}, profile, profile.points -= cost)
+                loadUser(profileUpdated)
+            }
+        };
         
     }
 
     redeemProduct = (productId) => {
 
-        let headers = {
-            'Content-Type' : 'application/json',
-            'Accept' : 'application/json',
-            'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDRjOTUyYTRkYTA0YTAwNmM4NzA2NTYiLCJpYXQiOjE1NjUzMDAwMTF9.SGeyJlHNoVu_GBrzw74TozqDbMGXM1oA_kW9CuqcqfE',
-        }
-
         let data = {
             productId
         }
 
-        let miInit = { 
-            method: 'POST',
-            headers,
-            mode: 'cors',
-            cache: 'default',
-            body: data 
-        };
+        let request = new XMLHttpRequest();
 
-        return fetch('https://coding-challenge-api.aerolab.co/redeem', miInit)
-            .then(req => req.json())
-            .then((responseData) => {
-                console.log(responseData);
-                return responseData;
-        })
+        request.open('POST', 'https://coding-challenge-api.aerolab.co/redeem');
+
+        request.setRequestHeader('Authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDRjOTUyYTRkYTA0YTAwNmM4NzA2NTYiLCJpYXQiOjE1NjUzMDAwMTF9.SGeyJlHNoVu_GBrzw74TozqDbMGXM1oA_kW9CuqcqfE');
+        request.setRequestHeader("Content-Type", "application/json");
+
+        request.send(JSON.stringify(data));
+
+        return request
+    
     } 
  
     render(){

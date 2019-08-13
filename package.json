@@ -8,7 +8,8 @@
     "start": "next start",
     "build": "next build",
     "export": "next export",
-    "public": "now --public"
+    "public": "now --public",
+    "public-prod": "now --target production"
   },
   "keywords": [],
   "author": "",
