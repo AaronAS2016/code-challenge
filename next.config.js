@@ -10,21 +10,32 @@ const nextConfig = {
     swDest: 'static/service-worker.js',
     runtimeCaching: [
       {
-        urlPattern: /^https?.*/,
-        handler: 'NetworkFirst',
+        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+        // Apply a cache-first strategy.
+        handler: 'CacheFirst',
         options: {
-          cacheName: 'https-calls',
-          networkTimeoutSeconds: 15,
+          // Use a custom cache name.
+          cacheName: 'images',
           expiration: {
-            maxEntries: 150,
-            maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
-          },
-          cacheableResponse: {
-            statuses: [0, 200],
-          },
+            maxAgeSeconds: 60 * 24 * 60 * 60,
+          }
         },
       },
-    ],
+      {
+        urlPattern: /^https?:\/\/coding-challenge-api.aerolab.com\/products\//,
+        handler: 'NetworkFirst'
+      },
+      {
+        urlPattern: /^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)/,
+        cacheName: 'CacheFirst',
+        options: {
+          // Use a custom cache name.
+          cacheName: 'google-fonts',
+          maxAgeSeconds: 60 * 24 * 60 * 60,
+        }
+      }
+    ]
   },
 };
 

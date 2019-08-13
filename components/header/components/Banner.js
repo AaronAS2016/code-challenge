@@ -10,7 +10,7 @@ const bannerStyles  = {
 const Banner = props => (
    <div style={bannerStyles}>
       <h1 className="banner-title">{props.title}</h1>
-      <img src={props.src} alt={props.alt} style={bannerStyles} />
+      <img src={props.src} alt={props.title} style={bannerStyles} />
 
       <style jsx>
          {
