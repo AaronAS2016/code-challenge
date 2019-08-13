@@ -16,6 +16,6 @@ Requires Node.Js 10
 * `npm run dev` to run enviromment local.
 * `npm run build && npm start` to run enviromment prodution.
 
-## Licencia
+## License
 
 MIT
