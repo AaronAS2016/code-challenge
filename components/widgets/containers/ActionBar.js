@@ -59,7 +59,10 @@ class ActionBar extends React.Component{
 
 function mapStateToProps (state) {
 
-    const { productsPerPage, products, producsInView } = state
+    const { coreData, navigation } = state 
+    const { productsPerPage, producsInView } = navigation
+    const {  products } = coreData
+
     return { 
         lengthProducts: products.length,
         productsPerPage,

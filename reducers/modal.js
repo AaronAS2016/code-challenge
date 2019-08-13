@@ -1,9 +1,9 @@
 
 
-import { actionTypes } from '../actions/index'
+import { actionTypes } from '../actions/'
 
   const defaultState = {
-      modalState: false,
+      modalState: false
   }
   
 

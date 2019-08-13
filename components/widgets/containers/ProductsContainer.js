@@ -86,7 +86,8 @@ function mapStateToProps (state) {
 
 
 
-    const { modalState, success  } = state
+    const { modalState  } = state.modal
+    const { success } = state.navigation
 
     return { 
         modalState,

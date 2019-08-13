@@ -50,8 +50,7 @@ const mapDispatchToProps = dispatch => {
   }
 
 function mapStateToProps (state) {
-    console.log(state)
-    const { profile } = state
+    const { profile } = state.coreData
     return { profile }
 }
   

@@ -89,7 +89,7 @@ class Product extends React.Component{
 
 function mapStateToProps (state) {
 
-    const { profile  } = state
+    const { profile  } = state.coreData
 
     return { 
         profile

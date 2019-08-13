@@ -1,4 +1,4 @@
-import { actionTypes } from '../actions/index'
+import { actionTypes } from '../actions/'
 const productUnselected = {
     _id: 0,
     cost: 0 ,
@@ -8,9 +8,7 @@ const productUnselected = {
       url: "",
       hdUrl: ""
     } 
-  }
-  
-
+}
 
 const defaultState = {
     selectedProduct:productUnselected,
@@ -18,9 +16,9 @@ const defaultState = {
     productsPerPage: 16,
     sortBy: 'recent',
     success: false,
-    producsInView: 1
+    producsInView: 1,
+    products: []
 }
-
 
 // REDUCERS
 export const navigation = (state = defaultState, action) => {

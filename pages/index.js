@@ -64,8 +64,10 @@ class Index extends React.Component {
 
  function mapStateToProps (state) {
 
-    const { actualPage, productsPerPage, sortBy, selectedProduct } = state
+    const { navigation } = state
 
+    const { actualPage, productsPerPage, sortBy, selectedProduct } = navigation
+   
     return { 
         actualPage,
         productsPerPage,

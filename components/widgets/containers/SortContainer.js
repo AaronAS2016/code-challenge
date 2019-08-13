@@ -168,7 +168,7 @@ class SortCointainer extends React.Component{
 
 function mapStateToProps (state) {
 
-    const { sortBy } = state
+    const { sortBy } = state.navigation
 
     return { 
         sortBy
