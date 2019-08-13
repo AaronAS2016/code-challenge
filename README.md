@@ -4,8 +4,8 @@ The challenge is to build a catalog view for a loyalty program app. My solution 
 
 [Chek the App](https://aerolab-challenge.aaronsaban98.now.sh/)
 
-![Screnshot](./.readme-static/screen1.png)
-![Screnshot](./.readme-static/screen2.png)
+![Screnshot](./.readme-static/screen1.png){ width=50% }
+![Screnshot](./.readme-static/screen2.png){ width=50% }
 
 ## How it works
 
