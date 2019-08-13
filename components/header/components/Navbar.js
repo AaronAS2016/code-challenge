@@ -1,16 +1,11 @@
 import Logo from './Logo';
 import Profile from './Profile';
-import Modal from '../../widgets/components/Modal';
-import ModalHistory from '../../widgets/components/ModalHistory';
 
 const Navbar = props => (
     <nav>
         
         <Logo src={props.logoSrc} alt={props.logoAlt} />
         <Profile  coins={props.coins} name={props.name}/>
-        <Modal hidden={true} >
-            <ModalHistory></ModalHistory>
-        </Modal>
         <style jsx>{
         `
             nav{

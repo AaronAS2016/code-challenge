@@ -2,7 +2,7 @@ import {device} from '../../../helpers/breakpoints'
 
 const ProductsCounter = props => (
     <div className="counter-container">
-        <span className="counter">{props.of} of {props.total} products</span>
+        <span className="counter">{props.of} - {props.totalPage} of {props.total} products</span>
 
         <style jsx>
         {

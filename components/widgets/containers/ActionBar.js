@@ -7,11 +7,11 @@ import { connect } from 'react-redux'
 class ActionBar extends React.Component{
     render(){
 
-        const { actualPage, productsPerPage, lengthProducts } = this.props;
+        const { productsPerPage, lengthProducts, producsInView} = this.props;
 
         return (
             <div className="action-bar">
-                <ProductsCounter of={actualPage * productsPerPage} total={lengthProducts}></ProductsCounter>
+                <ProductsCounter  of={(producsInView - productsPerPage) + 1 } totalPage={producsInView} total={lengthProducts}></ProductsCounter>
                 <SortCointainer></SortCointainer>
 
                 <style jsx >
@@ -59,11 +59,11 @@ class ActionBar extends React.Component{
 
 function mapStateToProps (state) {
 
-    const { actualPage,  productsPerPage, products } = state
+    const { productsPerPage, products, producsInView } = state
     return { 
-        actualPage,
         lengthProducts: products.length,
-        productsPerPage
+        productsPerPage,
+        producsInView
      }
   }
 

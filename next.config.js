@@ -29,6 +29,14 @@ const nextConfig = {
     swDest: 'static/service-worker.js',
     runtimeCaching: [
       {
+        urlPattern: new RegExp('https://coding-challenge-api.aerolab.co/user/me'),
+        handler: 'NetworkFirst',
+        options:{
+          cacheName: 'html-cache'
+        }
+
+      },
+      {
         urlPattern: '/',
         handler: 'NetworkFirst',
         options: {

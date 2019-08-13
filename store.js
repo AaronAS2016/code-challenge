@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-
 const productUnselected = {
   _id: 0,
   cost: 0 ,
@@ -24,7 +23,8 @@ const defaultState = {
     products: [],
     sortBy: 'recent',
     modalState: false,
-    success: false
+    success: false,
+    producsInView: 1
 }
 
 export const actionTypes = {
@@ -45,13 +45,15 @@ export const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.LOAD_USER_PERFIL:
       return Object.assign({}, state, action.payload)
-
     case actionTypes.LOAD_PRODUCTS:
-          return Object.assign({}, state, action.payload)
+        let producsInView =  (action.payload.products.length >= 16)  ? 16 :  action.payload.products.length
+        return Object.assign({}, state, action.payload, { producsInView })
     case actionTypes.NEXT_PAGE:
-        return Object.assign({}, state, state.actualPage++)
+        let producsInViewNextPage = state.producsInView + (state.products.length - state.productsPerPage)
+        return Object.assign({}, state, state.actualPage++, {producsInView:producsInViewNextPage})
     case actionTypes.BACK_PAGE:
-        return Object.assign({}, state, state.actualPage--)
+        let producsInViewBackPage = state.producsInView - (state.products.length - state.productsPerPage)
+        return Object.assign({}, state, state.actualPage--, {producsInView:producsInViewBackPage})
     case actionTypes.CHANGE_SORT_METHOD:
         return Object.assign({}, state, action.payload, state.actualPage = 1)
     case actionTypes.SELECT_PRODUCT:

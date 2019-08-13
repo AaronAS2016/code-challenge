@@ -14,9 +14,9 @@ export class Layout extends React.Component{
                 <title> { title } </title> 
                 <meta name="viewport" content="width=device-width"/>
                 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"></link>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                <meta name="title" content="Aerolab Challenge!"/>
-                <meta name="description" content="The challenge is to build a catalog view for a loyalty program app"/>
+                <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta key="title" content="Aerolab Challenge!"/>
+                <meta key="description" content="The challenge is to build a catalog view for a loyalty program app"/>
                 <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png"/>
 
                 <link name="apple-mobile-web-app-title" content="Aerolab"/>
