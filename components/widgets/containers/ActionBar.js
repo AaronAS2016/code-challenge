@@ -6,8 +6,6 @@ import { connect } from 'react-redux'
 
 class ActionBar extends React.Component{
     render(){
-
-        console.log(this.props)
         const { productsPerPage, lengthProducts, producsInView} = this.props;
 
         return (
