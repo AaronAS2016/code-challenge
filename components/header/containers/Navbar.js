@@ -2,6 +2,7 @@
 import Navbar from "../components/Navbar";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { loadUser } from '../../../store' 
 
  class NavbarContainer extends React.Component{
     render(){
