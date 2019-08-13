@@ -39,9 +39,9 @@ class Product extends React.Component{
 
         let request = new XMLHttpRequest();
 
-        request.open('POST', 'https://coding-challenge-api.aerolab.co/redeem');
+        request.open('POST', `${process.env.API_URL}/redeem`);
 
-        request.setRequestHeader('Authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDRjOTUyYTRkYTA0YTAwNmM4NzA2NTYiLCJpYXQiOjE1NjUzMDAwMTF9.SGeyJlHNoVu_GBrzw74TozqDbMGXM1oA_kW9CuqcqfE');
+        request.setRequestHeader('Authorization', process.env.AUTHENTICATION_TOKEN);
         request.setRequestHeader("Content-Type", "application/json");
 
         request.send(JSON.stringify(data));

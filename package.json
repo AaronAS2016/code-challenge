@@ -11,10 +11,15 @@
     "public": "now --public",
     "public-prod": "now --target production"
   },
-  "keywords": ["nextjs", "react", "redux"],
+  "keywords": [
+    "nextjs",
+    "react",
+    "redux"
+  ],
   "author": "Aaron Saban",
   "license": "ISC",
   "dependencies": {
+    "dotenv-webpack": "^1.7.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "^9.0.3",
     "next-offline": "^4.0.3",

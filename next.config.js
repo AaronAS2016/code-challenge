@@ -1,6 +1,25 @@
 const withOffline = require('next-offline');
+require('dotenv').config()
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
+
 
 const nextConfig = {
+  webpack: config => {
+    config.plugins = config.plugins || []
+
+    config.plugins = [
+      ...config.plugins,
+
+      // Read the .env file
+      new Dotenv({
+        path: path.join(__dirname, '.env'),
+        systemvars: true
+      })
+    ]
+
+    return config
+  },
   target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
   // Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
@@ -10,21 +29,29 @@ const nextConfig = {
     swDest: 'static/service-worker.js',
     runtimeCaching: [
       {
-        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-        // Apply a cache-first strategy.
-        handler: 'CacheFirst',
+        urlPattern: '/',
+        handler: 'networkFirst',
         options: {
-          // Use a custom cache name.
-          cacheName: 'images',
-          expiration: {
-            maxAgeSeconds: 60 * 24 * 60 * 60,
-          }
+          cacheName: 'html-cache',
         },
       },
       {
-        urlPattern: /^https?:\/\/coding-challenge-api.aerolab.com\/products\//,
-        handler: 'NetworkFirst'
-      }
+        urlPattern: new RegExp(`${process.env.API_URL}/products`),
+        handler: 'networkFirst',
+        options: {
+          cacheName: 'html-cache',
+        },
+      },
+      {
+        urlPattern: /.*\.(?:png|jpg|jpeg|svg|gif)/,
+        handler: 'cacheFirst',
+        options: {
+          cacheName: 'image-cache',
+          cacheableResponse: {
+            statuses: [0, 200],
+          },
+        },
+      },
     ]
   },
 };

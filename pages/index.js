@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { loadUser, loadProducts } from '../store'
+import Error from 'next/error'
 
 class Index extends React.Component { 
 
@@ -12,7 +13,7 @@ class Index extends React.Component {
             let headers = {
                 'Content-Type' : 'application/json',
                 'Accept' : 'application/json',
-                'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDRjOTUyYTRkYTA0YTAwNmM4NzA2NTYiLCJpYXQiOjE1NjUzMDAwMTF9.SGeyJlHNoVu_GBrzw74TozqDbMGXM1oA_kW9CuqcqfE',
+                'Authorization' : process.env.AUTHENTICATION_TOKEN,
             }
 
             let miInit = { method: 'GET',
@@ -20,8 +21,8 @@ class Index extends React.Component {
                             mode: 'cors',
                             cache: 'default' };
             let [reqProfile, reqProducts ] = await Promise.all([
-                fetch('https://coding-challenge-api.aerolab.co/user/me', miInit),
-                fetch('https://coding-challenge-api.aerolab.co/products', miInit)
+                fetch(`${process.env.API_URL}/user/me`, miInit),
+                fetch(`${process.env.API_URL}/products`, miInit)
             ])
             let body = await reqProfile.json()
             let products = await reqProducts.json()
@@ -29,7 +30,7 @@ class Index extends React.Component {
             return  { profile: body, products,  statusCode: 200 }
 
         }catch(e){
-            return { profile: null, products, statusCode: 503 }
+            return { profile: null, products:null, statusCode: 503 }
         }
     }
 
@@ -41,6 +42,11 @@ class Index extends React.Component {
     
     render() {
 
+    const {statusCode} = this.props
+
+    if(statusCode !== 200){
+        return <Error  statusCode={statusCode} />
+    }
 
     
     const { products, productsPerPage, actualPage, sortBy, selectedProduct } = this.props
