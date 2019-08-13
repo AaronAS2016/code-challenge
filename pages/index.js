@@ -3,7 +3,7 @@ import  ProductsCointaner  from "../components/widgets/containers/ProductsContai
 import fetch from 'isomorphic-fetch';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { loadUser, loadProducts } from '../actions/'
+import { loadUser, loadProducts, changeProductsLength } from '../actions/'
 import Error from 'next/error'
 
 class Index extends React.Component { 
@@ -35,9 +35,10 @@ class Index extends React.Component {
     }
 
     componentDidMount (){
-        const { loadUser, loadProducts , profile, products } = this.props
+        const { loadUser, loadProducts , profile, products, changeProductsLength} = this.props
         loadUser(profile)
         loadProducts(products)
+        changeProductsLength(products.length)
     }
     
     render() {
@@ -80,7 +81,8 @@ class Index extends React.Component {
  const mapDispatchToProps = dispatch => {
     return {
         loadUser: bindActionCreators(loadUser, dispatch),
-        loadProducts: bindActionCreators(loadProducts, dispatch)
+        loadProducts: bindActionCreators(loadProducts, dispatch),
+        changeProductsLength: bindActionCreators(changeProductsLength, dispatch)
     }
   }
   

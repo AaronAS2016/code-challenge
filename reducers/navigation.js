@@ -17,17 +17,20 @@ const defaultState = {
     sortBy: 'recent',
     success: false,
     producsInView: 1,
-    products: []
+    productsLength: 0
 }
 
 // REDUCERS
 export const navigation = (state = defaultState, action) => {
   switch (action.type) {
+    case actionTypes.CHANGE_PRODUCT_LENGHT:
+        let producsInView =  (action.payload.productsLength >= 16)  ? 16 :  action.payload.productsLength
+        return Object.assign({}, state, action.payload, {producsInView})
     case actionTypes.NEXT_PAGE:
-        let producsInViewNextPage = state.producsInView + (state.products.length - state.productsPerPage)
+        let producsInViewNextPage = state.producsInView + (state.productsLength - state.productsPerPage)
         return Object.assign({}, state, state.actualPage++, {producsInView:producsInViewNextPage})
     case actionTypes.BACK_PAGE:
-        let producsInViewBackPage = state.producsInView - (state.products.length - state.productsPerPage)
+        let producsInViewBackPage = state.producsInView - (state.productsLength - state.productsPerPage)
         return Object.assign({}, state, state.actualPage--, {producsInView:producsInViewBackPage})
     case actionTypes.CHANGE_SORT_METHOD:
         return Object.assign({}, state, action.payload, state.actualPage = 1)

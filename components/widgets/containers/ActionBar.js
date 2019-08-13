@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 class ActionBar extends React.Component{
     render(){
 
+        console.log(this.props)
         const { productsPerPage, lengthProducts, producsInView} = this.props;
 
         return (
@@ -59,12 +60,11 @@ class ActionBar extends React.Component{
 
 function mapStateToProps (state) {
 
-    const { coreData, navigation } = state 
-    const { productsPerPage, producsInView } = navigation
-    const {  products } = coreData
+    const { navigation } = state 
+    const { productsPerPage, producsInView, productsLength } = navigation
 
     return { 
-        lengthProducts: products.length,
+        lengthProducts: productsLength,
         productsPerPage,
         producsInView
      }

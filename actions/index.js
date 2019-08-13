@@ -10,6 +10,7 @@ export const actionTypes = {
     HIDE_MODAL: 'HIDE_MODAL',
     SUCCESS_COMPLETED: 'SUCCESS_COMPLETED',
     RESET_PRODUCT: 'RESET_PRODUCT',
+    CHANGE_PRODUCT_LENGHT: 'CHANGE_PRODUCT_LENGHT',
 }
   
 
@@ -53,4 +54,8 @@ export const requestCompleted = () => {
 
 export const resetProduct = () => {
   return {type: actionTypes.RESET_PRODUCT}
+}
+
+export const changeProductsLength = (length) => {
+    return {type: actionTypes.CHANGE_PRODUCT_LENGHT, payload: {productsLength: length}}
 }

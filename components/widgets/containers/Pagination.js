@@ -59,12 +59,11 @@ import { backPage,  nextPage } from '../../../actions/'
 
 function mapStateToProps (state) {
 
-    const { coreData, navigation } = state 
-    const { productsPerPage, actualPage } = navigation
-    const {  products } = coreData
+    const { navigation } = state 
+    const { productsPerPage, actualPage, productsLength } = navigation
     return { 
         actualPage,
-        lengthProducts: products.length,
+        lengthProducts: productsLength,
         productsPerPage
      }
   }

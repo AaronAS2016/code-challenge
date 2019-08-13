@@ -15,8 +15,8 @@ export const coreData = (state = defaultState, action) => {
     case actionTypes.LOAD_USER_PERFIL:
       return Object.assign({}, state, action.payload)
     case actionTypes.LOAD_PRODUCTS:
-        let producsInView =  (action.payload.products.length >= 16)  ? 16 :  action.payload.products.length
-        return Object.assign({}, state, action.payload, { producsInView })
+        
+        return Object.assign({}, state, action.payload)
     default:
       return state
   }
