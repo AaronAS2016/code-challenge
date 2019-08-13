@@ -8,7 +8,7 @@ import { sortByRecent, sortByLowestPrice, sortByHighestPrice } from '../../../he
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { showModal, hideModal, resetProduct } from '../../../store'
+import { hideModal, resetProduct } from '../../../actions/'
 
 class ProductsCointaner extends React.Component{
 

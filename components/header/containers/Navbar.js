@@ -2,7 +2,7 @@
 import Navbar from "../components/Navbar";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { loadUser } from '../../../store' 
+import { loadUser } from '../../../actions/' 
 
  class NavbarContainer extends React.Component{
     render(){
@@ -15,11 +15,11 @@ import { loadUser } from '../../../store'
 
     componentDidMount(){
         this.updateProfile()
-
     }
 
     updateProfile = () => {
 
+        const { loadUser } = this.props
         let headers = {
             'Content-Type' : 'application/json',
             'Accept' : 'application/json',
@@ -50,6 +50,7 @@ const mapDispatchToProps = dispatch => {
   }
 
 function mapStateToProps (state) {
+    console.log(state)
     const { profile } = state
     return { profile }
 }

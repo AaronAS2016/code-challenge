@@ -3,7 +3,7 @@ import  ProductsCointaner  from "../components/widgets/containers/ProductsContai
 import fetch from 'isomorphic-fetch';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { loadUser, loadProducts } from '../store'
+import { loadUser, loadProducts } from '../actions/'
 import Error from 'next/error'
 
 class Index extends React.Component { 

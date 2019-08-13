@@ -3,7 +3,7 @@ import NextPage from "../components/NextPage";
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { backPage,  nextPage } from '../../../store'
+import { backPage,  nextPage } from '../../../actions/'
 
  class Pagination extends React.Component{
         

@@ -1,7 +1,7 @@
 import { device } from '../../../helpers/breakpoints'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { changeSortBy } from '../../../store'
+import { changeSortBy } from '../../../actions/'
 
 
 class SortCointainer extends React.Component{

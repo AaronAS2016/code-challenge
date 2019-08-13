@@ -2,7 +2,7 @@
 import ProductView from '../components/ProductView'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { hideModal,  selectedProduct, showModal, requestCompleted, loadUser, resetProduct } from '../../../store'
+import { hideModal,  selectedProduct, showModal, requestCompleted, loadUser, resetProduct } from '../../../actions/'
 
 class Product extends React.Component{
 
