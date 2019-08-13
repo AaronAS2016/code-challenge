@@ -13,7 +13,7 @@ class Index extends React.Component {
             let headers = {
                 'Content-Type' : 'application/json',
                 'Accept' : 'application/json',
-                'Authorization' : process.env.AUTHENTICATION_TOKEN,
+                'Authorization' :'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDRjOTUyYTRkYTA0YTAwNmM4NzA2NTYiLCJpYXQiOjE1NjUzMDAwMTF9.SGeyJlHNoVu_GBrzw74TozqDbMGXM1oA_kW9CuqcqfE',
             }
 
             let miInit = { method: 'GET',
@@ -21,8 +21,8 @@ class Index extends React.Component {
                             mode: 'cors',
                             cache: 'default' };
             let [reqProfile, reqProducts ] = await Promise.all([
-                fetch(`${process.env.API_URL}/user/me`, miInit),
-                fetch(`${process.env.API_URL}/products`, miInit)
+                fetch(`https://coding-challenge-api.aerolab.co/user/me`, miInit),
+                fetch(`https://coding-challenge-api.aerolab.co/products`, miInit)
             ])
             let body = await reqProfile.json()
             let products = await reqProducts.json()

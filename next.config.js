@@ -36,7 +36,7 @@ const nextConfig = {
         },
       },
       {
-        urlPattern: new RegExp(`${process.env.API_URL}/products`),
+        urlPattern: new RegExp(`https://coding-challenge-api.aerolab.co/products`),
         handler: 'networkFirst',
         options: {
           cacheName: 'html-cache',
