@@ -60,6 +60,7 @@ const ProductView = props => (
                         justify-content:center;
                         align-items:flex-start;
                         transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+                        min-height:235px;
                     }
 
                     .product-buy{
