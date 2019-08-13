@@ -2,13 +2,13 @@
 import ProductView from '../components/ProductView'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { selectedProduct, showModal, requestCompleted, loadUser } from '../../../store'
+import { hideModal,  selectedProduct, showModal, requestCompleted, loadUser, resetProduct } from '../../../store'
 
 class Product extends React.Component{
 
 
     handleClickRedeem = () => {
-        const { selectedProduct, id, cost, title, category, img, showModal, profile, requestCompleted, loadUser } = this.props
+        const { selectedProduct, id, cost, title, category, img, showModal, profile, requestCompleted, loadUser, resetProduct, hideModal} = this.props
         const product = {
             _id:id,
             cost,
@@ -23,9 +23,16 @@ class Product extends React.Component{
         let request = this.redeemProduct(id)
         request.onreadystatechange = function () {
             if (this.readyState === 4) {
-                requestCompleted()
-                let profileUpdated = Object.assign({}, profile, profile.points -= cost)
-                loadUser(profileUpdated)
+
+                if(this.status !== 200){
+                    alert("You are offline! Try again when you come back online")
+                    resetProduct()
+                    hideModal()
+                }else{
+                    requestCompleted()
+                    let profileUpdated = Object.assign({}, profile, profile.points -= cost)
+                    loadUser(profileUpdated)
+                }
             }
         };
         
@@ -95,7 +102,10 @@ function mapStateToProps (state) {
         selectedProduct: bindActionCreators(selectedProduct, dispatch),
         showModal: bindActionCreators(showModal, dispatch),
         requestCompleted: bindActionCreators(requestCompleted, dispatch),
-        loadUser: bindActionCreators(loadUser,dispatch)
+        loadUser: bindActionCreators(loadUser,dispatch),
+        resetProduct: bindActionCreators(resetProduct, dispatch),
+        hideModal: bindActionCreators(hideModal, dispatch)
+
     }
 }
   

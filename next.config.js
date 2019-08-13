@@ -30,21 +30,21 @@ const nextConfig = {
     runtimeCaching: [
       {
         urlPattern: '/',
-        handler: 'networkFirst',
+        handler: 'NetworkFirst',
         options: {
           cacheName: 'html-cache',
         },
       },
       {
         urlPattern: new RegExp(`https://coding-challenge-api.aerolab.co/products`),
-        handler: 'networkFirst',
+        handler: 'NetworkFirst',
         options: {
           cacheName: 'html-cache',
         },
       },
       {
         urlPattern: /.*\.(?:png|jpg|jpeg|svg|gif)/,
-        handler: 'cacheFirst',
+        handler: 'CacheFirst',
         options: {
           cacheName: 'image-cache',
           cacheableResponse: {
