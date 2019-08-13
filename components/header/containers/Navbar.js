@@ -37,11 +37,7 @@ import { loadUser } from '../../../actions/'
         })
       
     }
-
-
-
 }
-
 
 const mapDispatchToProps = dispatch => {
     return {

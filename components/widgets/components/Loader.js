@@ -8,15 +8,12 @@ const Loader = props => (
         <style jsx>
             {
                 `
-
-
                 .LoaderBalls {
                     width: 90px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                 }
-
 
                 .hidden{
                     display:none;
@@ -47,7 +44,6 @@ const Loader = props => (
                     }
                 }
   
-                
                 
                 `
             }

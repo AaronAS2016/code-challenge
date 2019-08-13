@@ -5,9 +5,7 @@ import { actionTypes } from '../actions/'
   const defaultState = {
       modalState: false
   }
-  
 
-// REDUCERS
 export const modal = (state = defaultState, action) => {
   switch (action.type) {
       case actionTypes.SHOW_MODAL:

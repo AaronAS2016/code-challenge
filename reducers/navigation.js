@@ -20,7 +20,6 @@ const defaultState = {
     productsLength: 0
 }
 
-// REDUCERS
 export const navigation = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.CHANGE_PRODUCT_LENGHT:

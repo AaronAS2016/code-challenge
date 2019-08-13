@@ -4,7 +4,6 @@ import { device } from '../../../helpers/breakpoints'
 const ModalRedeem = (props) => (
     <div className={"modal-container "}>
 
-
         {!props.success ? (
 
                 <div className="modal-loader-container">

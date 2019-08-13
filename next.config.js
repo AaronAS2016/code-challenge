@@ -5,6 +5,7 @@ const Dotenv = require('dotenv-webpack')
 
 
 const nextConfig = {
+  // Rollback doteEnv because Now dosent support yet, request made with absoluteUrl 
   webpack: config => {
     config.plugins = config.plugins || []
 
@@ -29,6 +30,7 @@ const nextConfig = {
     swDest: 'static/service-worker.js',
     runtimeCaching: [
       {
+        //Caching the profile user
         urlPattern: new RegExp('https://coding-challenge-api.aerolab.co/user/me'),
         handler: 'NetworkFirst',
         options:{
@@ -43,6 +45,7 @@ const nextConfig = {
           cacheName: 'html-cache',
         },
       },
+      //caching the products
       {
         urlPattern: new RegExp(`https://coding-challenge-api.aerolab.co/products`),
         handler: 'NetworkFirst',
@@ -51,6 +54,7 @@ const nextConfig = {
         },
       },
       {
+        //caching images
         urlPattern: /.*\.(?:png|jpg|jpeg|svg|gif)/,
         handler: 'CacheFirst',
         options: {

@@ -6,7 +6,6 @@ const bannerStyles  = {
    position:"relative"
 }
 
-
 const Banner = props => (
    <div style={bannerStyles}>
       <h1 className="banner-title">{props.title}</h1>

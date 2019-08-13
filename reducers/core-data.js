@@ -1,5 +1,7 @@
 import { actionTypes } from '../actions/'
 
+
+
 const defaultState = {
     profile: {
         name: "",
@@ -9,7 +11,7 @@ const defaultState = {
 }
 
 
-// REDUCERS
+// coreData reducer with all the data from request
 export const coreData = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.LOAD_USER_PERFIL:

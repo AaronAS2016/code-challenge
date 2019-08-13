@@ -1,5 +1,3 @@
-
-
 const Coins = props => (
     <div className="coins-container" style={props.style}>
         <span className="coins-counter">{props.coins}</span>
@@ -7,8 +5,6 @@ const Coins = props => (
         <style jsx>
         {
             `
-
-
                 .coins-container{
                     background:#ededed;
                     border-radius:100px;
@@ -19,7 +15,6 @@ const Coins = props => (
                     flex-direction: row;    
                 }
 
-          
                 .coin{
                     width:30px;
                     height:30px;
@@ -27,8 +22,6 @@ const Coins = props => (
                     margin: 1px 3px;
  
                 }
-            
-            
             `
         }
         </style>

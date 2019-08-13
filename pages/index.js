@@ -10,6 +10,9 @@ class Index extends React.Component {
 
     static async getInitialProps () {
         try{
+
+            //fetching the products and user profile in server
+
             let headers = {
                 'Content-Type' : 'application/json',
                 'Accept' : 'application/json',
@@ -35,7 +38,9 @@ class Index extends React.Component {
     }
 
     componentDidMount (){
+
         const { loadUser, loadProducts , profile, products, changeProductsLength} = this.props
+        //saving into the store the request
         loadUser(profile)
         loadProducts(products)
         changeProductsLength(products.length)

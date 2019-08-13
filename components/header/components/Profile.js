@@ -1,6 +1,5 @@
 import Coins from "./Coins";
 
-
 const profileStyles = {
     display: "flex",
     alignItems: "center",
