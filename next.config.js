@@ -11,7 +11,6 @@ const nextConfig = {
     runtimeCaching: [
       {
         urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-
         // Apply a cache-first strategy.
         handler: 'CacheFirst',
         options: {
@@ -25,15 +24,6 @@ const nextConfig = {
       {
         urlPattern: /^https?:\/\/coding-challenge-api.aerolab.com\/products\//,
         handler: 'NetworkFirst'
-      },
-      {
-        urlPattern: /^https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)/,
-        cacheName: 'CacheFirst',
-        options: {
-          // Use a custom cache name.
-          cacheName: 'google-fonts',
-          maxAgeSeconds: 60 * 24 * 60 * 60,
-        }
       }
     ]
   },
