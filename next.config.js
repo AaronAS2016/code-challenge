@@ -64,6 +64,17 @@ const nextConfig = {
           },
         },
       },
+      //caching font
+      {
+        urlPattern: new RegExp('https://fonts.googleapis.com/css?family=Roboto&display=swap'),
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'google-font',
+          expiration:{
+            maxAgeSeconds: 24 * 60 * 60,
+          }
+        }
+      }
     ]
   },
 };
