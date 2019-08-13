@@ -1,7 +1,7 @@
 {
   "name": "aerolab-challenge",
   "version": "1.0.0",
-  "description": "",
+  "description": "Coding challenge",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -11,8 +11,8 @@
     "public": "now --public",
     "public-prod": "now --target production"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["nextjs", "react", "redux"],
+  "author": "Aaron Saban",
   "license": "ISC",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",

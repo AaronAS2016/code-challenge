@@ -4,10 +4,10 @@ The challenge is to build a catalog view for a loyalty program app. My solution 
 
 [Chek the App](https://aerolab-challenge.aaronsaban98.now.sh/)
 
-![Screnshot](./.readme-static/aerolab-challenge.aaronsaban98.now.sh_(iPhone 6_7_8).png)
-![Screnshot](./.readme-static/aerolab-challenge.aaronsaban98.now.sh_(iPhone 6_7_8) (1).png)
+![Screnshot](./.readme-static/screen1.png)
+![Screnshot](./.readme-static/screen2.png)
 
-## ¿Cómo funciona?
+## How it works
 
 Requires Node.Js 10
 
